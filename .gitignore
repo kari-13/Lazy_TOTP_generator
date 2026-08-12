@@ -1,1 +1,4 @@
 .DS_Store
+.venv
+.idea
+.__pychache__

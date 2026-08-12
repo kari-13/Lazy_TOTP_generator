@@ -1,0 +1,8 @@
+[project]
+name = "lazy-totp-generator"
+version = "0.1.0"
+requires-python = ">=3.9"
+dependencies = [
+    "argon2-cffi>=25.1.0",
+    "cryptography>=47.0.0",
+]
