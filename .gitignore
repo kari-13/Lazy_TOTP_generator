@@ -4,3 +4,7 @@
 .__pychache__
 liboath.a
 .pytest_cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
