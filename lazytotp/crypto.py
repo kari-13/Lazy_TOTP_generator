@@ -40,9 +40,9 @@ class Crypto:
         cipher = Fernet(self.key)
         return cipher.encrypt(self.secret.encode("utf-8"))
 
-    def decrypt(self, encrypted_thingy: bytes) -> str:
+    def decrypt(self, encrypted_thing: bytes) -> str:
         if self.key is None:
             raise ValueError("Key has not been derived.")
 
         cipher = Fernet(self.key)
-        return cipher.decrypt(encrypted_thingy).decode("utf-8")
+        return cipher.decrypt(encrypted_thing).decode("utf-8")
