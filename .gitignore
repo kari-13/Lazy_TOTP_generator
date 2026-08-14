@@ -2,3 +2,5 @@
 .venv
 .idea
 .__pychache__
+liboath.a
+.pytest_cache
