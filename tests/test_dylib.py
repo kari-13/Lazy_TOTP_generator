@@ -8,7 +8,6 @@ parent_dir = current_dir.parent
 lib = CDLL(parent_dir / "liboath.dylib")
 
 lib.oath_init.restype = c_int
-
 lib.oath_totp_generate.argtypes = [
     c_char_p,
     c_size_t,
