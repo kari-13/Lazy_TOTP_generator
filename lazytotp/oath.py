@@ -60,7 +60,7 @@ class OathConverter:
         buf = create_string_buffer(data_bytes)
 
         # Set up reference targets for C to write back memory addresses
-        c_out_ptr = c_void_p()
+        c_out_ptr = c_char_p()
         c_out_len = c_size_t()
 
         # Call liboath to parse and allocate memory internally
