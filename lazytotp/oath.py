@@ -88,4 +88,4 @@ class OathConverter:
             if rc != 0:
                 # Use warning to avoid exceptions during cleanup
                 import warnings
-                warnings.warn(f"oath_done() failed with error code: {rc}")
+                warnings.warn(f"oath_done() failed with error code : {rc}")
