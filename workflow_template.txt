@@ -1,0 +1,26 @@
+START
+ │
+ ├── Sign In
+ │      │
+ │      └── Enter password
+ │              │
+ │              └── Unlock vault
+ │
+ └── Add
+        │
+        └── Create vault / master password
+                    │
+                    ↓
+               ACCOUNTS
+                    │
+          ┌─────────┴─────────┐
+          ↓                   ↓
+     Select account        Add account
+          │                   │
+          ↓                   ↓
+       TOTP VIEW           Save secret
+          │                   │
+          └─────── Back ──────┘
+                    │
+                    ↓
+                 ACCOUNTS
