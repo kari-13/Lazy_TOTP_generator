@@ -42,7 +42,7 @@ Current progress:
 * [x] Native `liboath` integration
 * [x] TOTP generation
 * [ ] Encrypted vault
-* [ ] Multiple accounts
+
 * [ ] QR code import
 * [ ] Terminal UI
 * [ ] Automatic sync support
@@ -52,7 +52,7 @@ Current progress:
 ## Installation
 
 ```bash
-git clone https://github.com/<username>/Lazy_TOTP_generator.git
+git clone https://github.com/kari-13/Lazy_TOTP_generator.git
 
 cd Lazy_TOTP_generator
 
@@ -60,12 +60,13 @@ python -m venv .venv
 source .venv/bin/activate
 
 pip install -r requirements.txt
+uv sync
 ```
 
 Build the native library (instructions coming soon):
 
 ```bash
-python build.py
+python build.py #this is a placeholder
 ```
 
 ---
@@ -131,4 +132,4 @@ Please open an issue before making major changes so the design can be discussed 
 
 This project is open source.
 
-License: *TBD*
+License: GNU AFFERO GENERAL PUBLIC LICENSE
