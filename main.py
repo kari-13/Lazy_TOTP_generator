@@ -1,9 +1,12 @@
 
 import sys
 import getpass
+from this import s
 from ansi_ec import ANSI
 import ansi_ec
 from lazytotp import storage
+from lazytotp import oath
+from lazytotp import crypto
 class LazyTOTPUI:
 
     def clear(self):
@@ -80,14 +83,15 @@ class LazyTOTPUI:
         self.header("Add Account")
 
         name = input("  Account name: ").strip()
-        issuer = input("  Issuer: ").strip()
+
         secret = getpass.getpass("  TOTP secret: ").strip()
 
         if not name or not secret:
             self.message("Required fields are missing.", error=True)
             return
 
-        # TODO: Send name, issuer and secret to backend
+        s2=storage.Storage()
+        s2.add(name, secret)
 
         self.message("Account added successfully.")
 
@@ -100,7 +104,8 @@ class LazyTOTPUI:
             self.message("Account name cannot be empty.", error=True)
             return
 
-        storage.Storage.
+        s1=storage.Storage()
+        s1.remove(name)
 
         self.message("Delete operation requested.")
 
@@ -109,12 +114,12 @@ class LazyTOTPUI:
 
         name = input("  Account name: ").strip()
 
-        if not name:
-            self.message("Account name cannot be empty.", error=True)
+        if not name or self.check_account(name):
+            self.message("Account name cannot be empty or the account does not exist", error=True)
             return
         s=storage.Storage()
-        try :s.data[f"name"]
-        except keyKeyError :
+        o=s.data.get(name)
+        oath
 
 
         print("\n  OTP: [Waiting for backend]")
@@ -130,7 +135,7 @@ class LazyTOTPUI:
         self.header()
         print(f"\n  {ANSI.FG_GREEN}Vault session closed.{ANSI.RESET}")
 
-    def check_account(n):
+    def check_account(self,n):
         try :s.data[f"n"]
         except KeyError : return False
 
