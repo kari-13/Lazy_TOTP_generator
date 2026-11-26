@@ -6,6 +6,7 @@ import ansi_ec
 
 from lazytotp import storage
 from lazytotp import oath
+from lazytotp import crypto
 
 
 class LazyTOTPUI:
@@ -14,11 +15,15 @@ class LazyTOTPUI:
         # One storage instance for the entire UI session
         self.store = storage.Storage()
         self.running = True
-
+        self.salt = crypto.Crypto.create_get_salt()
     # -------------------------
     # Terminal utilities
     # -------------------------
-
+    def first_login(self) :
+        a=getpass.getpass("Enter your master password")
+        b=getpass.getpass("Renter yout master password")
+        if a==b : sys.stdout.write(f"{ANSI.BG_GREEN} Account created successfully")
+        self.menu()
     def clear(self):
         sys.stdout.write("\033[2J\033[H")
         sys.stdout.flush()
@@ -262,7 +267,9 @@ if __name__ == "__main__":
 
     try:
         ui = LazyTOTPUI()
-        ui.menu()
+        if not storage.Storage.does_vault_exists():
+            ui.first_login()
+        else
 
     except KeyboardInterrupt:
         sys.stdout.write("\n\nSession interrupted.\n")

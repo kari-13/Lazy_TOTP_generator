@@ -4,7 +4,7 @@ import secrets
 from argon2 import low_level
 from cryptography.fernet import Fernet
 import keyring
-
+import storage
 
 class Crypto:
     """
@@ -98,3 +98,5 @@ class Crypto:
             return salt
         if check is not None:
             return check
+    def verify_password(self,encrypted_data:bytes):
+        salt=self.create_get_salt()
